@@ -17,7 +17,7 @@ export default function HeroCarousel() {
         // Initialize carousel with options
         const carouselElement = carouselRef.current;
         const carousel = new (bootstrap as any).Carousel(carouselElement, {
-          interval: 3000, // 3 seconds
+          interval: 1000, // 
           ride: 'carousel',
           pause: 'hover',
           wrap: true,
@@ -44,7 +44,7 @@ export default function HeroCarousel() {
         ref={carouselRef}
         className="carousel slide carousel-fade" 
         data-bs-ride="carousel"
-        data-bs-interval="3000"
+        data-bs-interval="1000"
         data-bs-pause="hover"
       >
         <div className="carousel-indicators">

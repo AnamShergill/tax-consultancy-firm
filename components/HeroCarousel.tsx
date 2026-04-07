@@ -78,7 +78,6 @@ export default function HeroCarousel() {
                 backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero1.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '500px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -110,7 +109,6 @@ export default function HeroCarousel() {
                 backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero2.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '500px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -142,7 +140,6 @@ export default function HeroCarousel() {
                 backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero3.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '500px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'

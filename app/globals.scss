@@ -178,6 +178,16 @@ html {
   background-position: center;
   display: flex;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  @media (max-width: 576px) {
+    height: 50vh;
+    min-height: 350px;
+  }
 }
 
 .hero-overlay {

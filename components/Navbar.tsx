@@ -36,6 +36,15 @@ export default function Navbar() {
     router.push(`/${newLocale}/${path}`);
   };
 
+  const closeNavbar = () => {
+    const navbarCollapse = document.getElementById('navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+    
+    if (navbarCollapse?.classList.contains('show')) {
+      navbarToggler?.click();
+    }
+  };
+
   return (
     <nav 
       className="navbar navbar-expand-lg sticky-top"
@@ -86,6 +95,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#home`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -106,6 +116,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#about`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -125,6 +136,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#services`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -144,6 +156,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#testimonials`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -163,6 +176,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#faq`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -182,6 +196,7 @@ export default function Navbar() {
               <a 
                 className="nav-link fw-semibold" 
                 href={`/${locale}#contact`}
+                onClick={closeNavbar}
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
@@ -256,6 +271,7 @@ export default function Navbar() {
               <a 
                 className="btn btn-sm" 
                 href={`/${locale}#contact`}
+                onClick={closeNavbar}
                 style={{
                   background: 'linear-gradient(135deg, #0d6efd 0%, #198754 100%)',
                   color: '#fff',

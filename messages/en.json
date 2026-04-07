@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Expert Tax Consulting Services",
+      "subtitle": "Professional solutions for all your taxation needs"
+    },
+    "slide2": {
+      "title": "Comprehensive Financial Advisory",
+      "subtitle": "Trusted partner for your business growth"
+    },
+    "slide3": {
+      "title": "Compliance Made Simple",
+      "subtitle": "Stay compliant with expert guidance"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your Trusted Tax Consultant",
+    "description": "We are a team of experienced chartered accountants and tax professionals dedicated to providing comprehensive financial and taxation services. With years of expertise in the industry, we help individuals and businesses navigate complex tax regulations while maximizing their financial efficiency.",
+    "description2": "Our commitment to excellence and client satisfaction has made us a trusted partner for businesses across various sectors. We combine deep industry knowledge with personalized service to deliver solutions that meet your unique needs."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Tax & Financial Solutions",
+    "incomeTax": {
+      "title": "Income Tax",
+      "description": "Expert income tax planning and filing services for individuals and businesses"
+    },
+    "gst": {
+      "title": "GST Services",
+      "description": "Complete GST registration, filing, and compliance management"
+    },
+    "audit": {
+      "title": "Audit Services",
+      "description": "Thorough audit and assurance services for financial transparency"
+    },
+    "tds": {
+      "title": "TDS Services",
+      "description": "TDS return filing and compliance management"
+    },
+    "company": {
+      "title": "Company Registration",
+      "description": "Complete company incorporation and registration services"
+    },
+    "itr": {
+      "title": "ITR Filing",
+      "description": "Hassle-free income tax return filing with maximum refunds"
+    },
+    "accounting": {
+      "title": "Accounting",
+      "description": "Professional bookkeeping and accounting services"
+    },
+    "planning": {
+      "title": "Tax Planning",
+      "description": "Strategic tax planning to minimize liabilities legally"
+    }
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What Our Clients Say"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get Your Answers"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get In Touch",
+    "name": "Your Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Your Message",
+    "send": "Send Message",
+    "info": "Contact Information",
+    "address": "Address",
+    "addressText": "Karachi, Pakistan"
+  },
+  "footer": {
+    "about": "About Company",
+    "aboutText": "Professional tax consulting and financial advisory services for individuals and businesses.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact Info",
+    "rights": "All rights reserved."
+  }
+}

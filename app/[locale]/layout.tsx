@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 import '../globals.scss';
@@ -8,7 +8,7 @@ import ThemeProvider from '@/components/ThemeProvider';
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
@@ -17,13 +17,18 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: Props) {
-  const messages = await getMessages();
-
+  const { locale } = await params;
+  
   if (!['en', 'ur'].includes(locale)) {
     notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+  
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>

@@ -46,7 +46,14 @@ export default function Testimonials() {
                   <p className="card-text mb-4">"{testimonial.text}"</p>
                   <div className="d-flex align-items-center">
                     <div className="flex-shrink-0">
-                      <div style={{ background: 'linear-gradient(135deg, #0d6efd 0%, #198754 100%)' }} className="text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '50px', height: '50px' }}>
+                      <div 
+                        className="text-white rounded-circle d-flex align-items-center justify-content-center" 
+                        style={{ 
+                          background: 'linear-gradient(135deg, #0d6efd 0%, #198754 100%)',
+                          width: '50px', 
+                          height: '50px' 
+                        }}
+                      >
                         <span className="fw-bold">{testimonial.name.charAt(0)}</span>
                       </div>
                     </div>

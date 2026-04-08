@@ -47,7 +47,7 @@ export default function Navbar() {
 
   return (
     <nav 
-      className="navbar navbar-expand-lg sticky-top"
+      className="navbar navbar-expand-lg fixed-top"
       style={{
         background: scrolled 
           ? 'linear-gradient(135deg, #0a4275 0%, #083a63 100%)' 
@@ -55,7 +55,13 @@ export default function Navbar() {
         backdropFilter: 'blur(10px)',
         boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.1)' : '0 2px 10px rgba(0, 0, 0, 0.05)',
         transition: 'all 0.3s ease',
-        padding: '15px 0'
+        padding: '15px 0',
+        position: 'fixed',
+        top: 0,
+        zIndex: 1000,
+        width: '100%',
+        left: 0,
+        right: 0
       }}
     >
       <div className="container">
@@ -63,8 +69,9 @@ export default function Navbar() {
           className="navbar-brand fw-bold" 
           href={`/${locale}`}
           style={{
-            fontSize: '1.5rem',
-            transition: 'all 0.3s ease'
+            fontSize: '1.7rem',
+            transition: 'all 0.3s ease',
+            marginLeft: '15px'
           }}
         >
           <span style={{ color: scrolled ? '#8bc34a' : '#8bc34a' }}>Tax</span>
@@ -100,13 +107,16 @@ export default function Navbar() {
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
                   position: 'relative',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('home')}
@@ -120,13 +130,16 @@ export default function Navbar() {
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('about')}
@@ -140,13 +153,16 @@ export default function Navbar() {
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('services')}
@@ -160,13 +176,16 @@ export default function Navbar() {
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('testimonials')}
@@ -180,13 +199,16 @@ export default function Navbar() {
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('faq')}
@@ -200,13 +222,16 @@ export default function Navbar() {
                 style={{
                   color: scrolled ? '#fff' : '#333',
                   transition: 'all 0.3s ease',
-                  padding: '8px 16px'
+                  padding: '8px 16px',
+                  display: 'inline-block'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#8bc34a';
+                  e.currentTarget.style.transform = 'translateY(-2px) scale(1.05)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = scrolled ? '#fff' : '#333';
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
                 }}
               >
                 {t('contact')}

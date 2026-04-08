@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <>
       {/* Contact Form Section with Background */}
-      <section id="contact" className="contact-form-section p-0" style={{ marginTop: '60px' }}>
+      <section id="contact" className="contact-form-section p-0" style={{ marginTop: '60px', overflow: 'hidden', maxWidth: '100vw', width: '100%' }}>
         <div 
           className="contact-form-wrapper"
           style={{
@@ -31,27 +31,31 @@ export default function Contact() {
             padding: '100px 0',
             minHeight: '600px',
             display: 'flex',
-            alignItems: 'center'
+            alignItems: 'center',
+            overflow: 'hidden',
+            maxWidth: '100vw',
+            width: '100%'
           }}
         >
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
-                <div className="text-center mb-5">
-                  <h2 className="text-white fw-bold mb-3" style={{ fontSize: '3rem' }}>
-                    REQUEST A CALL BACK
+          <div className="container" style={{ overflow: 'hidden', maxWidth: '100%', paddingLeft: '15px', paddingRight: '15px' }}>
+            <div className="row justify-content-center" style={{ margin: 0, overflow: 'hidden' }}>
+              <div className="col-lg-8" style={{ overflow: 'hidden' }}>
+                <div className="text-center mb-5" data-aos="fade-up">
+                  <h2 className="fw-bold mb-3" style={{ fontSize: '3rem' }}>
+                    <span style={{ color: '#8bc34a' }}>Request A</span>{' '}
+                    <span style={{ color: '#fff' }}>Call Back</span>
                   </h2>
                   <div 
                     style={{
                       width: '80px',
                       height: '3px',
-                      background: '#ffc107',
+                      background: 'linear-gradient(135deg, #8bc34a 0%, #fff 100%)',
                       margin: '0 auto'
                     }}
                   ></div>
                 </div>
-                <div className="contact-form-card">
-                  <form onSubmit={handleSubmit}>
+                <div className="contact-form-card" data-aos="fade-up" data-aos-delay="200" style={{ overflow: 'hidden', maxWidth: '100%' }}>
+                  <form onSubmit={handleSubmit} style={{ overflow: 'hidden', maxWidth: '100%' }}>
                     <div className="mb-4">
                       <input
                         type="text"
@@ -151,9 +155,10 @@ export default function Contact() {
       </section>
 
       {/* Map and Contact Info Section */}
-      <section className="contact-info-section" style={{ paddingTop: '80px', paddingBottom: '0', marginBottom: '60px' }}>
-        <div className="row g-0">
-          <div className="col-lg-6">
+      <section className="contact-info-section" style={{ paddingTop: '80px', paddingBottom: '0', marginBottom: '60px', overflow: 'hidden', maxWidth: '100vw', width: '100%' }}>
+        <div className="container-fluid p-0" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+          <div className="row g-0" style={{ maxWidth: '100%', margin: 0, overflow: 'hidden' }}>
+            <div className="col-lg-6" data-aos="fade-right" style={{ padding: 0 }}>
             <div className="contact-info-box p-5" style={{ background: '#f8f9fa', minHeight: '500px' }}>
               <h4 className="mb-4 fw-bold">{t('info')}</h4>
               <div className="mb-4">
@@ -193,15 +198,16 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="col-lg-6">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.6828295469!2d66.59499374999999!3d25.193202399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1234567890"
-              width="100%"
-              height="500"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
+            <div className="col-lg-6" data-aos="fade-left" style={{ padding: 0 }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462560.6828295469!2d66.59499374999999!3d25.193202399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1234567890"
+                width="100%"
+                height="500"
+                style={{ border: 0, display: 'block', maxWidth: '100%' }}
+                allowFullScreen
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>

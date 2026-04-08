@@ -27,15 +27,26 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="bg-light" style={{ marginTop: '60px', marginBottom: '60px' }}>
-      <div className="container">
-        <div className="section-title">
-          <h2>{t('title')}</h2>
-          <p>{t('subtitle')}</p>
+    <section id="testimonials" className="bg-light" style={{ marginTop: '60px', marginBottom: '60px', overflow: 'hidden', maxWidth: '100vw', width: '100%' }}>
+      <div className="container" style={{ maxWidth: '100%', overflow: 'hidden', paddingLeft: '15px', paddingRight: '15px' }}>
+        <div className="section-title" data-aos="fade-up">
+          <h2 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '15px' }}>
+            <span style={{ color: '#0d6efd' }}>Client</span>{' '}
+            <span style={{ color: '#198754' }}>Testimonials</span>
+          </h2>
+          <div 
+            style={{
+              width: '80px',
+              height: '3px',
+              background: 'linear-gradient(135deg, #0d6efd 0%, #198754 100%)',
+              margin: '0 auto 15px'
+            }}
+          ></div>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}>{t('subtitle')}</p>
         </div>
-        <div className="row g-4">
+        <div className="row g-4" style={{ margin: 0, overflow: 'hidden' }}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="col-lg-4">
+            <div key={index} className="col-lg-4" data-aos="fade-up" data-aos-delay={index * 150}>
               <div className="card h-100 shadow-sm" style={{ border: '3px solid #0d6efd', borderRadius: '10px' }}>
                 <div className="card-body p-4">
                   <div className="mb-3">

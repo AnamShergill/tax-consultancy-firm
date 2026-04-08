@@ -33,17 +33,28 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" style={{ marginTop: '60px', marginBottom: '60px', position: 'relative', background: '#dce6e4ff' }}>
-      <div className="container">
-        <div className="section-title">
-          <h2>{t('title')}</h2>
-          <p>{t('subtitle')}</p>
+    <section id="faq" style={{ marginTop: '60px', marginBottom: '60px', position: 'relative', background: '#dce6e4ff', overflow: 'hidden', maxWidth: '100vw', width: '100%' }}>
+      <div className="container" style={{ maxWidth: '100%', overflow: 'hidden', paddingLeft: '15px', paddingRight: '15px' }}>
+        <div className="section-title" data-aos="fade-up">
+          <h2 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '15px' }}>
+            <span style={{ color: '#0d6efd' }}>Frequently Asked</span>{' '}
+            <span style={{ color: '#198754' }}>Questions</span>
+          </h2>
+          <div 
+            style={{
+              width: '80px',
+              height: '3px',
+              background: 'linear-gradient(135deg, #0d6efd 0%, #198754 100%)',
+              margin: '0 auto 15px'
+            }}
+          ></div>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}>{t('subtitle')}</p>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div className="accordion" id="faqAccordion">
+        <div className="row justify-content-center" style={{ margin: 0, overflow: 'hidden' }}>
+          <div className="col-lg-8" style={{ overflow: 'hidden' }}>
+            <div className="accordion" id="faqAccordion" style={{ overflow: 'hidden', maxWidth: '100%' }}>
               {faqs.map((faq, index) => (
-                <div key={index} className="accordion-item mb-3 border-0 shadow-sm" style={{ overflow: 'hidden', borderRadius: '8px' }}>
+                <div key={index} className="accordion-item mb-3 border-0 shadow-sm" style={{ overflow: 'hidden', borderRadius: '8px' }} data-aos="fade-up" data-aos-delay={index * 100}>
                   <h2 className="accordion-header">
                     <button
                       className="accordion-button collapsed"

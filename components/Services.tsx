@@ -114,8 +114,8 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="p-0" style={{ position: 'relative', overflow: 'hidden', marginTop: '60px', marginBottom: '60px' }}>
-      <div style={{ position: 'relative', minHeight: '800px' }}>
+    <section id="services" className="p-0" style={{ position: 'relative', overflow: 'hidden', marginTop: '60px', marginBottom: '60px', maxWidth: '100vw', width: '100%' }}>
+      <div style={{ position: 'relative', minHeight: '800px', overflow: 'hidden', maxWidth: '100vw', width: '100%' }}>
         <div 
           style={{
             position: 'absolute',
@@ -125,7 +125,8 @@ export default function Services() {
             height: '200px',
             background: 'linear-gradient(135deg, #8bc34a 0%, #7cb342 100%)',
             clipPath: 'polygon(0 0, 100% 0, 100% 60%, 0 100%)',
-            zIndex: 1
+            zIndex: 1,
+            maxWidth: '100%'
           }}
         ></div>
         
@@ -137,30 +138,32 @@ export default function Services() {
             right: 0,
             bottom: 0,
             background: 'linear-gradient(135deg, #0a4275 0%, #083a63 100%)',
-            zIndex: 0
+            zIndex: 0,
+            maxWidth: '100%'
           }}
         ></div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '80px', paddingBottom: '80px' }}>
-          <div className="text-center mb-5">
-            <h2 className="text-dark fw-bold mb-2" style={{ fontSize: '3rem' }}>
-              Our <span style={{ color: '#fff' }}>Services</span>
+        <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '80px', paddingBottom: '80px', maxWidth: '100%', overflow: 'hidden', paddingLeft: '15px', paddingRight: '15px' }}>
+          <div className="text-center mb-5" data-aos="fade-up">
+            <h2 className="fw-bold mb-3" style={{ fontSize: '3rem' }}>
+              <span style={{ color: '#0951d7ff' }}>Our</span>{' '}
+              <span style={{ color: '#fff' }}>Services</span>
             </h2>
             <div 
               style={{
                 width: '80px',
                 height: '3px',
-                background: '#333',
+                background: 'linear-gradient(135deg, #8bc34a 0%, #fff 100%)',
                 margin: '0 auto'
               }}
             ></div>
           </div>
 
-          <div className="row g-4 mt-4">
-            {services.map((service) => (
-              <div key={service.key} className="col-lg-3 col-md-6">
+          <div className="row g-4 mt-4" style={{ maxWidth: '100%', margin: 0, overflow: 'hidden' }}>
+            {services.map((service, index) => (
+              <div key={service.key} className="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div 
-                  className="service-card text-center p-4"
+                  className="service-card-animated text-center p-4"
                   style={{
                     background: 'transparent',
                     border: 'none',
@@ -169,7 +172,16 @@ export default function Services() {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    transition: 'all 0.3s ease'
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
+                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
                   <div>

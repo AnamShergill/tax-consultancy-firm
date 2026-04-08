@@ -1,33 +1,71 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HeroCarousel() {
   const t = useTranslations('hero');
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Typewriter effect - slower and more premium
+  useEffect(() => {
+    const texts = [
+      t('slide1.title'),
+      t('slide2.title'),
+      t('slide3.title')
+    ];
+    
+    const currentText = texts[activeSlide];
+    let currentIndex = 0;
+    let typingInterval: NodeJS.Timeout;
+    
+    setDisplayedText('');
+    setIsTyping(true);
+
+    // Add initial delay before starting typewriter (500ms for luxurious feel)
+    const initialDelay = setTimeout(() => {
+      typingInterval = setInterval(() => {
+        if (currentIndex < currentText.length) {
+          setDisplayedText(currentText.substring(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          setIsTyping(false);
+          clearInterval(typingInterval);
+        }
+      }, 100); // 100ms per character for slower, more premium feel
+    }, 500);
+
+    return () => {
+      clearTimeout(initialDelay);
+      if (typingInterval) clearInterval(typingInterval);
+    };
+  }, [activeSlide, t]);
 
   useEffect(() => {
-    // Initialize Bootstrap carousel with auto-slide
+    // Initialize Bootstrap carousel
     const initCarousel = async () => {
       if (typeof window !== 'undefined' && carouselRef.current) {
-        // Dynamically import Bootstrap
         const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js');
         
-        // Initialize carousel with options
         const carouselElement = carouselRef.current;
         const carousel = new (bootstrap as any).Carousel(carouselElement, {
-          interval: 1000, // 
+          interval: 5000, // 8 seconds to allow full typewriter animation
           ride: 'carousel',
           pause: 'hover',
           wrap: true,
           touch: true
         });
 
-        // Start cycling
+        // Track slide changes
+        carouselElement.addEventListener('slide.bs.carousel', (e: any) => {
+          setActiveSlide(e.to);
+        });
+
         carousel.cycle();
 
-        // Cleanup
         return () => {
           carousel.dispose();
         };
@@ -37,6 +75,25 @@ export default function HeroCarousel() {
     initCarousel();
   }, []);
 
+  const getSubtitle = () => {
+    const subtitles = [
+      t('slide1.subtitle'),
+      t('slide2.subtitle'),
+      t('slide3.subtitle')
+    ];
+    return subtitles[activeSlide];
+  };
+
+  const getButtonText = () => {
+    const buttons = ['Get Started', 'Our Services', 'Learn More'];
+    return buttons[activeSlide];
+  };
+
+  const getButtonLink = () => {
+    const links = ['#contact', '#services', '#about'];
+    return links[activeSlide];
+  };
+
   return (
     <section id="home" className="p-0">
       <div 
@@ -44,7 +101,7 @@ export default function HeroCarousel() {
         ref={carouselRef}
         className="carousel slide carousel-fade" 
         data-bs-ride="carousel"
-        data-bs-interval="1000"
+        data-bs-interval="5000"
         data-bs-pause="hover"
       >
         <div className="carousel-indicators">
@@ -71,29 +128,34 @@ export default function HeroCarousel() {
         </div>
         <div className="carousel-inner">
           {/* Slide 1 */}
-          <div className="carousel-item active" data-bs-interval="3000">
+          <div className="carousel-item active" data-bs-interval="8000">
             <div 
-              className="hero-slide" 
+              className="hero-slide hero-slide-zoom" 
               style={{
-                backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero1.jfif)',
+                backgroundImage: 'url(/images/hero1.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                backgroundRepeat: 'no-repeat'
               }}
             >
+              {/* Simple semi-transparent overlay */}
+              <div className="hero-overlay-simple"></div>
+              
               <div className="container">
                 <div className="row justify-content-center">
                   <div className="col-lg-10 text-white text-center">
                     <h1 className="hero-title">
-                      {t('slide1.title')}
+                      {displayedText}
+                      <span className={`typewriter-cursor ${isTyping ? 'blinking' : 'hidden'}`}>|</span>
                     </h1>
-                    <p className="hero-subtitle">
-                      {t('slide1.subtitle')}
+                    <p className={`hero-subtitle ${!isTyping ? 'hero-subtitle-visible' : ''}`}>
+                      {getSubtitle()}
                     </p>
-                    <a href="#contact" className="btn btn-hero btn-lg">
-                      Get Started
+                    <a 
+                      href={getButtonLink()} 
+                      className={`btn btn-hero btn-lg ${!isTyping ? 'hero-button-visible' : ''}`}
+                    >
+                      {getButtonText()}
                     </a>
                   </div>
                 </div>
@@ -102,29 +164,34 @@ export default function HeroCarousel() {
           </div>
 
           {/* Slide 2 */}
-          <div className="carousel-item" data-bs-interval="3000">
+          <div className="carousel-item" data-bs-interval="8000">
             <div 
-              className="hero-slide" 
+              className="hero-slide hero-slide-zoom" 
               style={{
-                backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero2.jfif)',
+                backgroundImage: 'url(/images/hero2.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                backgroundRepeat: 'no-repeat'
               }}
             >
+              {/* Simple semi-transparent overlay */}
+              <div className="hero-overlay-simple"></div>
+              
               <div className="container">
                 <div className="row justify-content-center">
                   <div className="col-lg-10 text-white text-center">
                     <h1 className="hero-title">
-                      {t('slide2.title')}
+                      {displayedText}
+                      <span className={`typewriter-cursor ${isTyping ? 'blinking' : 'hidden'}`}>|</span>
                     </h1>
-                    <p className="hero-subtitle">
-                      {t('slide2.subtitle')}
+                    <p className={`hero-subtitle ${!isTyping ? 'hero-subtitle-visible' : ''}`}>
+                      {getSubtitle()}
                     </p>
-                    <a href="#services" className="btn btn-hero btn-lg">
-                      Our Services
+                    <a 
+                      href={getButtonLink()} 
+                      className={`btn btn-hero btn-lg ${!isTyping ? 'hero-button-visible' : ''}`}
+                    >
+                      {getButtonText()}
                     </a>
                   </div>
                 </div>
@@ -133,29 +200,34 @@ export default function HeroCarousel() {
           </div>
 
           {/* Slide 3 */}
-          <div className="carousel-item" data-bs-interval="3000">
+          <div className="carousel-item" data-bs-interval="8000">
             <div 
-              className="hero-slide" 
+              className="hero-slide hero-slide-zoom" 
               style={{
-                backgroundImage: 'linear-gradient(rgba(91, 93, 95, 0.42), rgba(17, 18, 17, 0.88)), url(/images/hero3.jfif)',
+                backgroundImage: 'url(/images/hero3.jfif)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
+                backgroundRepeat: 'no-repeat'
               }}
             >
+              {/* Simple semi-transparent overlay */}
+              <div className="hero-overlay-simple"></div>
+              
               <div className="container">
                 <div className="row justify-content-center">
                   <div className="col-lg-10 text-white text-center">
                     <h1 className="hero-title">
-                      {t('slide3.title')}
+                      {displayedText}
+                      <span className={`typewriter-cursor ${isTyping ? 'blinking' : 'hidden'}`}>|</span>
                     </h1>
-                    <p className="hero-subtitle">
-                      {t('slide3.subtitle')}
+                    <p className={`hero-subtitle ${!isTyping ? 'hero-subtitle-visible' : ''}`}>
+                      {getSubtitle()}
                     </p>
-                    <a href="#about" className="btn btn-hero btn-lg">
-                      Learn More
+                    <a 
+                      href={getButtonLink()} 
+                      className={`btn btn-hero btn-lg ${!isTyping ? 'hero-button-visible' : ''}`}
+                    >
+                      {getButtonText()}
                     </a>
                   </div>
                 </div>

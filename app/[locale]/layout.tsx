@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import '../globals.scss';
 import BootstrapClient from '@/components/BootstrapClient';
 import ThemeProvider from '@/components/ThemeProvider';
+import AOSInit from '@/components/AOSInit';
 
 type Props = {
   children: ReactNode;
@@ -175,6 +176,7 @@ export default async function LocaleLayout({
       <body>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
+            <AOSInit />
             <BootstrapClient />          {/* ← Moved UP */}
             {children}
           </NextIntlClientProvider>

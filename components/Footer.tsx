@@ -8,7 +8,7 @@ export default function Footer() {
   const locale = useLocale();
 
   return (
-    <footer className="text-white pt-5 pb-3" style={{ position: 'relative', overflow: 'hidden' }}>
+    <footer className="text-white pt-5 pb-3" style={{ position: 'relative', overflow: 'hidden', maxWidth: '100%', width: '100%' }}>
       {/* Diagonal Green Section */}
       <div 
         style={{
@@ -19,7 +19,8 @@ export default function Footer() {
           height: '150px',
           background: 'linear-gradient(135deg, #8bc34a 0%, #7cb342 100%)',
           clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 100%)',
-          zIndex: 0
+          zIndex: 0,
+          maxWidth: '100%'
         }}
       ></div>
       
@@ -32,17 +33,18 @@ export default function Footer() {
           right: 0,
           bottom: 0,
           background: 'linear-gradient(135deg, #0a4275 0%, #083a63 100%)',
-          zIndex: -1
+          zIndex: -1,
+          maxWidth: '100%'
         }}
       ></div>
 
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '100%' }}>
         <div className="row g-4">
           <div className="col-lg-4">
-            <h5 className="mb-3 fw-bold" style={{ fontSize: '1.5rem' }}>
-              <span style={{ color: '#8bc34a' }}>Tax</span>Consultant
+            <h5 className="mb-3 fw-bold" style={{ fontSize: '1.7rem' }}>
+              <span style={{ color: '#242fcaff' }}>Tax</span>Consultant
             </h5>
-            <p className="text-white" style={{ opacity: 0.9 }}>{t('aboutText')}</p>
+            <p className="text-white" style={{ opacity: 1, fontWeight: '600' }}>{t('aboutText')}</p>
             <div className="social-links mt-4">
               <a 
                 href="https://facebook.com" 
@@ -166,22 +168,94 @@ export default function Footer() {
             <h5 className="mb-3 fw-bold">{t('quickLinks')}</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <a href={`/${locale}#home`} className="text-white text-decoration-none" style={{ opacity: 0.9, transition: 'opacity 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.9'}>
+                <a 
+                  href={`/${locale}#home`} 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1, 
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    fontWeight: '500'
+                  }} 
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#0a42cfff';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
                   {tNav('home')}
                 </a>
               </li>
               <li className="mb-2">
-                <a href={`/${locale}#about`} className="text-white text-decoration-none" style={{ opacity: 0.9, transition: 'opacity 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.9'}>
+                <a 
+                  href={`/${locale}#about`} 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1, 
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    fontWeight: '500'
+                  }} 
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
                   {tNav('about')}
                 </a>
               </li>
               <li className="mb-2">
-                <a href={`/${locale}#services`} className="text-white text-decoration-none" style={{ opacity: 0.9, transition: 'opacity 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.9'}>
+                <a 
+                  href={`/${locale}#services`} 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1, 
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    fontWeight: '500'
+                  }} 
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
                   {tNav('services')}
                 </a>
               </li>
               <li className="mb-2">
-                <a href={`/${locale}#contact`} className="text-white text-decoration-none" style={{ opacity: 0.9, transition: 'opacity 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.opacity = '1'} onMouseLeave={(e) => e.currentTarget.style.opacity = '0.9'}>
+                <a 
+                  href={`/${locale}#contact`} 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1, 
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    fontWeight: '500'
+                  }} 
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
                   {tNav('contact')}
                 </a>
               </li>
@@ -191,36 +265,177 @@ export default function Footer() {
             <h5 className="mb-3 fw-bold">{t('services')}</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <span className="text-white" style={{ opacity: 0.9 }}>Income Tax</span>
+                <span 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1,
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#0a42cfff';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  Income Tax
+                </span>
               </li>
               <li className="mb-2">
-                <span className="text-white" style={{ opacity: 0.9 }}>GST Services</span>
+                <span 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1,
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  GST Services
+                </span>
               </li>
               <li className="mb-2">
-                <span className="text-white" style={{ opacity: 0.9 }}>Audit Services</span>
+                <span 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1,
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  Audit Services
+                </span>
               </li>
               <li className="mb-2">
-                <span className="text-white" style={{ opacity: 0.9 }}>Company Registration</span>
+                <span 
+                  className="text-decoration-none" 
+                  style={{ 
+                    color: '#fff',
+                    opacity: 1,
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                    fontWeight: '500'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  Company Registration
+                </span>
               </li>
             </ul>
           </div>
           <div className="col-lg-3">
             <h5 className="mb-3 fw-bold">{t('contact')}</h5>
             <ul className="list-unstyled">
-              <li className="mb-2 text-white" style={{ opacity: 0.9 }}>
-                📍 Karachi, Pakistan
+              <li className="mb-2">
+                <span 
+                  style={{ 
+                    color: '#fff', 
+                    opacity: 1, 
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  📍 Karachi, Pakistan
+                </span>
               </li>
-              <li className="mb-2 text-white" style={{ opacity: 0.9 }}>
-                📧 info@taxconsultant.com
+              <li className="mb-2">
+                <a 
+                  href="mailto:info@taxconsultant.com"
+                  className="text-decoration-none"
+                  style={{ 
+                    color: '#fff', 
+                    opacity: 1, 
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  📧 info@taxconsultant.com
+                </a>
               </li>
-              <li className="mb-2 text-white" style={{ opacity: 0.9 }}>
-                📞 +92 300 1234567
+              <li className="mb-2">
+                <a 
+                  href="tel:+923001234567"
+                  className="text-decoration-none"
+                  style={{ 
+                    color: '#fff', 
+                    opacity: 1, 
+                    fontWeight: '500',
+                    transition: 'all 0.3s ease',
+                    display: 'inline-block',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#8bc34a';
+                    e.currentTarget.style.transform = 'translateX(5px)';
+                  }} 
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#fff';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  📞 +92 300 1234567
+                </a>
               </li>
             </ul>
           </div>
         </div>
         <hr className="my-4" style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }} />
-        <div className="text-center text-white" style={{ opacity: 0.9 }}>
+        <div className="text-center text-white" style={{ opacity: 1, fontWeight: '500' }}>
           <p className="mb-0">
             © {new Date().getFullYear()} TaxConsultant. {t('rights')}
           </p>
